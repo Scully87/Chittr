@@ -20,4 +20,14 @@ feature 'posts' do
 	  end
 	end
 
+	context 'creating posts' do
+		scenario 'prompts user to fill out a form, then displays the new post' do
+			visit '/posts'
+			click_link 'New'
+			fill_in 'Title', with: 'Hello'
+			click_button 'Create Post'
+			expect(page).to have_content 'Hello'
+		end
+	end
+
 end
