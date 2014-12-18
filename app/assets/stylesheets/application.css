@@ -14,7 +14,8 @@
  *= require_self
  */
 
- * { background:#C0DEED}
+* { background:#C0DEED}
+
 #awan {
 position:fixed;
 top:0px;left:0px;
@@ -33,6 +34,17 @@ padding-bottom:10px;
   -ms-animation: awan-animasi 25s linear infinite;
   -moz-animation: awan-animasi 25s linear infinite;
   -webkit-animation: awan-animasi 25s linear infinite;
+}
+
+.holder {
+	width: 90%;
+	height: 90%;
+	margin: 0 auto;
+}
+
+header {
+	color: black;
+	font-size: 3rem;
 }
 
 @keyframes awan-animasi {
