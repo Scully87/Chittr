@@ -30,4 +30,17 @@ feature 'posts' do
 		end
 	end
 
+	context 'editing posts' do
+
+  before {Post.create title: 'Hello'}
+
+	  scenario 'let a user edit a post' do
+	    visit '/posts'
+	    click_link 'Edit'
+	    fill_in 'Title', with: 'Good-Bye'
+	    click_button 'Update Post'
+	    expect(page).to have_content 'Good-Bye'
+	  end
+	end
+
 end
