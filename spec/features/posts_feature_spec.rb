@@ -37,9 +37,9 @@ feature 'posts' do
 	  scenario 'let a user edit a post' do
 	    visit '/posts'
 	    click_link 'Edit'
-	    fill_in 'Title', with: 'Good-Bye'
+	    fill_in 'Title', with: 'GoodBye'
 	    click_button 'Update Post'
-	    expect(page).to have_content 'Good-Bye'
+	    expect(page).to have_content 'GoodBye'
 	  end
 	end
 
