@@ -5,6 +5,8 @@ group :test do
   gem 'capybara'
 end
 
+gem 'devise'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'rails_12factor', group: :production

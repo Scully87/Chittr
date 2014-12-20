@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'posts' do
+
   context 'no posts have been added' do
     scenario 'should display a prompt to add a post' do
       visit '/posts'
@@ -14,7 +15,7 @@ feature 'posts' do
 
 	  scenario 'display posts' do
 	  	visit '/posts'
-	  	expect(page).to have_content('Hello')
+	  	expect(page).to have_content 'Hello'
 	  end
 	end
 
