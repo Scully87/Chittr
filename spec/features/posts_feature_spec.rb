@@ -10,9 +10,7 @@ feature 'posts' do
   end
 
   context 'posts have been added' do
-  	before do
-  		Post.create(title: 'Hello')
-  	end
+  	before {Post.create title: 'Hello'}
 
 	  scenario 'display posts' do
 	  	visit '/posts'
@@ -31,8 +29,7 @@ feature 'posts' do
 	end
 
 	context 'editing posts' do
-
-  before {Post.create title: 'Hello'}
+  	before {Post.create title: 'Hello'}
 
 	  scenario 'let a user edit a post' do
 	    visit '/posts'
@@ -40,6 +37,16 @@ feature 'posts' do
 	    fill_in 'Title', with: 'GoodBye'
 	    click_button 'Update Post'
 	    expect(page).to have_content 'GoodBye'
+	  end
+	end
+
+	context 'deleting restaurants' do
+	  before {Post.create title: 'Hello'}
+
+	  scenario 'removes a post when a user clicks a delete link' do
+	    visit '/posts'
+	    click_link 'Delete'
+	    expect(page).not_to have_content 'Hello'
 	  end
 	end
 
