@@ -9,7 +9,7 @@
 <body>
 <section id="awan">
 <p class="notice"><%= notice %></p>
-  <section id="Logo">Chittr</section>
+  <section id="Logo"><a href="/">Chittr</a></section>
 	<% if user_signed_in? %>
 	  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 	  <% else %>
