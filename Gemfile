@@ -5,6 +5,12 @@ group :test do
   gem 'capybara'
 end
 
+gem 'dotenv-deployment'
+
+gem 'dotenv-rails'
+
+gem 'omniauth-facebook'
+
 gem 'devise'
 
 gem 'twitter-bootstrap-rails'
