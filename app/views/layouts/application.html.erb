@@ -7,14 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>Chittr
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
- </header>
 <section id="awan">
-  <section class="holder">
+<p class="notice"><%= notice %></p>
+  <section id="Logo">Chittr</section>
+	<% if user_signed_in? %>
+	  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+	  <% else %>
+	  <%= link_to "Sign in", new_user_session_path %>
+	  <%= link_to "Sign up", new_user_registration_path %>
+	<% end %>
  	  <%= yield %>
-  </section>
+
 </section>
 
 </body>
