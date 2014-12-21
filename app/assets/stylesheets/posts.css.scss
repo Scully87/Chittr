@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html,body {
-	background: #C0DEED;
-}
-.page-header {
-	margin-top:10%;
+section .page-header {
+	margin-top:15%;
 }
 
+section .posts {
+	display: inline-block;
+	width: 70%;
+	float: left;
+}
 
