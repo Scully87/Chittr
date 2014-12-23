@@ -18,6 +18,7 @@
           <tr>
             <td><%= post.title %></td>
             <td><%= post.description %></td>
+            <td><%= image_tag post.image.url(:thumb) %></td>
             <td><%=l post.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -29,8 +30,8 @@
                           :class => 'btn btn-default btn-xs' %>
             </td>
           <section class="likes">
-            <p><%= link_to 'Like', post_likes_path(post), class: 'likes-link' %>
-            <span class="likes_count"> <%= post.likes.count %> </span> likes</p>
+            <%= link_to 'Like', post_likes_path(post), class: 'likes-link' %><br>
+            <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;
           </section>
           </tr>
         <% end %>
