@@ -19,8 +19,6 @@
             <td><%= post.title %></td>
             <td><%= post.description %></td>
             <td><%=l post.created_at %></td>
-            <td><%= post.likes.count %> likes<td>
-            <td><%= link_to "like", post_likes_path(post)%><td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_post_path(post), :class => 'btn btn-default btn-xs' %>
@@ -28,8 +26,12 @@
                           post_path(post),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-xs btn-danger' %>
+                          :class => 'btn btn-default btn-xs' %>
             </td>
+          <section class="likes">
+            <p><%= link_to 'Like', post_likes_path(post), class: 'likes-link' %>
+            <span class="likes_count"> <%= post.likes.count %> </span> likes</p>
+          </section>
           </tr>
         <% end %>
       </tbody>
@@ -39,6 +41,4 @@
                 new_post_path,
                 :class => 'btn btn-primary' %>
   </section>
-  <aside class="profile">
-  </aside>
 </section>

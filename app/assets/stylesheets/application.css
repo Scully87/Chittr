@@ -48,6 +48,11 @@ nav {
 	margin: 0 auto;
 }
 
+.likes {
+  float:right;
+  display: inline-block;
+}
+
 @keyframes awan-animasi {
   from {
     background-position: 0 0;
