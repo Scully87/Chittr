@@ -3,8 +3,7 @@ Chittr
 
 ## Synopsis
 
-TODO: Creating a Twitter clone in Rails
-
+Creating a Twitter clone in Rails
 
 ## Technologies Used
 
@@ -13,13 +12,8 @@ TODO: Creating a Twitter clone in Rails
 
 ## Job List
 
-- [ ] Create Posts
-- [ ]	Create Users
+- [x] Create Posts
+- [x]	Create Users
+- [x] Create Likes
+- [ ] Add Image option to Posts
 - [ ]	Awesome User interface
-
-## Favourite Code Snippet
-
-tbc
-~~~
- TODO: tbc
-~~~
