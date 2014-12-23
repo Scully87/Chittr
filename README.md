@@ -9,6 +9,9 @@ Creating a Twitter clone in Rails
 
 - Ruby on Rails
 
+## Link to Site
+
+- [CHITTR](http://chittr-chittr.herokuapp.com)
 
 ## Job List
 
