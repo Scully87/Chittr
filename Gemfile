@@ -12,6 +12,10 @@ gem 'devise'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'poltergeist'
+
+gem 'database_cleaner'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record
