@@ -19,7 +19,7 @@
           <tr>
             <td><%= post.title %></td>
             <td><%= post.description %></td>
-            <td><%= image_tag post.image.url(:thumb) %></td>
+            <td class="images"><%= image_tag post.image.url(:thumb) %></td>
             <td><%=l post.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),

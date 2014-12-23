@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.paperclip_defaults = {
+    has_attached_file :avatar,
+    :styles => { :thumb => '75x75#', :large => '300x300#' }, :default_style => :thumb,
+    :default_url => 'http://www.whatthesupp.com/images/noImageAvailable300.gif',
     :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['S3_BUCKET_NAME'],

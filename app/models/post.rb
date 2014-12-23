@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 	
 	has_many :likes
 
-	has_attached_file :image, :styles => { :medium => "200x200>", :thumb => "75x75>" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :image, :styles => { :thumb => '75x75#', :large => '300x300#' }, :default_style => :thumb, :default_url => "http://www.whatthesupp.com/images/noImageAvailable300.gif"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 end
