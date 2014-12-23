@@ -15,5 +15,6 @@ Creating a Twitter clone in Rails
 - [x] Create Posts
 - [x]	Create Users
 - [x] Create Likes
-- [ ] Add Image option to Posts
+- [x] Add Image option to Posts
+- [ ] Create AWS bucket
 - [ ]	Awesome User interface
