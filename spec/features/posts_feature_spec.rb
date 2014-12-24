@@ -31,7 +31,7 @@ feature 'posts' do
 	end
 
 	context 'editing posts' do
-	  scenario 'let a user edit a post' do
+	  scenario 'let a user edit a post if singed in' do
 			sign_up
 	    create_post
 	    click_link 'Edit'
@@ -39,10 +39,15 @@ feature 'posts' do
 	    click_button 'Update Post'
 	    expect(page).to have_content 'GoodBye'
 	  end
+
+	  scenario 'does not let a user edit a post if not signed in' do
+	  	create_post
+	  	expect(page).not_to have_content 'Hello'
+	  end
 	end
 
 	context 'deleting posts' do
-	  scenario 'removes a post when a user clicks a delete link' do
+	  scenario 'removes a post when a user clicks a delete link  a post if singed in' do
 	  	sign_up
 	  	create_post
 	    visit '/posts'
