@@ -1,20 +1,23 @@
 require 'rails_helper'
+require 'helpers/application'
+
+include ApplicationHelper
 
 feature 'liking posts' do
-  before do
-    hello = Post.create(title: 'hello')
-  end
 
-  scenario 'a user can like a post, which updates the post like count', js: true do
-    visit '/posts'
-    click_link 'Like'
-    expect(page).to have_content("1 likes")
-  end
-
-  it 'a user can like a post, which increments the like count', js: true do
-	  visit '/posts'
-	  click_link 'Like'
-	  expect(page).to have_content("1 likes")
-	end
-
+  context 'posts have been added'
+    scenario 'a user can like a post, which updates the post like count', js: true do
+      sign_up
+      create_post
+      visit '/posts'
+      click_link 'Like'
+      expect(page).to have_content("1 likes")
+    end
+    scenario 'a user can like a post, which increments the like count', js: true do
+  	  sign_up
+      create_post
+      visit '/posts'
+  	  click_link 'Like'
+  	  expect(page).to have_content("1 likes")
+  	end
 end
