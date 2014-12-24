@@ -53,7 +53,7 @@ feature 'posts' do
 	end
 
 	context 'deleting posts' do
-	  scenario 'removes a post when a user clicks a delete link  a post if signed in' do
+	  scenario 'removes a post when a user clicks delete when signed in' do
 	  	sign_up
 	  	create_post
 	    visit '/posts'
