@@ -1,8 +1,6 @@
 require 'rails_helper'
 
-feature 'posts' do
-
-	before do
+	def sign_up
     visit('/')
     click_link('Sign up')
     fill_in('Email', with: 'test@example.com')
@@ -10,6 +8,8 @@ feature 'posts' do
     fill_in('Password confirmation', with: 'testtest')
     click_button('Sign up')
   end
+
+feature 'posts' do
 
   context 'no posts have been added' do
     scenario 'should display a prompt to add a post' do
@@ -31,6 +31,7 @@ feature 'posts' do
 	context 'creating posts' do
 		scenario 'prompts user to fill out a form, then displays the new post' do
 			visit '/posts'
+			sign_up
 			click_link 'New'
 			fill_in 'Title', with: 'Hello'
 			click_button 'Create Post'
@@ -39,18 +40,23 @@ feature 'posts' do
 	end
 
 	context 'editing posts' do
-  	before {Post.create title: 'Hello'}
 
 	  scenario 'let a user edit a post' do
+			sign_up
 	    visit '/posts'
+	    click_link 'New'
+			fill_in 'Title', with: 'Hello'
+			click_button 'Create Post'
+			expect(page).to have_content 'Hello'
 	    click_link 'Edit'
+	    save_and_open_page
 	    fill_in 'Title', with: 'GoodBye'
 	    click_button 'Update Post'
 	    expect(page).to have_content 'GoodBye'
 	  end
 	end
 
-	context 'deleting restaurants' do
+	context 'deleting posts' do
 	  before {Post.create title: 'Hello'}
 
 	  scenario 'removes a post when a user clicks a delete link' do
