@@ -29,21 +29,24 @@ before_action :authenticate_user!, :except => [:index, :show]
     @post = current_user.posts.find(params[:id])
     rescue ActiveRecord::RecordNotFound
     flash[:notice] = 'You cannot edit this - please try again!'
-    redirect_to '/posts'
+    redirect_to posts_path
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to '/posts'
+    redirect_to posts_path
   end
 
 
   def destroy
     @post = current_user.posts.find(params[:id])
+    @post.destroy
+    flash[:notice] = 'Post deleted successfully'
+    redirect_to posts_path
     rescue ActiveRecord::RecordNotFound
-    flash[:notice] = 'You cannot delete this'
-    redirect_to '/posts'
+    flash[:notice] = 'You cannot delete this!'
+    redirect_to posts_path
   end
 
   private
