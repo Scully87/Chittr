@@ -37,7 +37,7 @@ feature 'posts' do
 	end
 
 	context 'editing posts' do
-	  scenario 'let a user edit a post if signed in' do
+	  scenario 'lets a user edit a post they created' do
 			sign_up
 	    create_post
 	    click_link 'Edit'
@@ -46,7 +46,7 @@ feature 'posts' do
 	    expect(page).to have_content 'GoodBye'
 	  end
 
-	  scenario 'does not let a different user edit a post' do
+	  scenario 'does not let a user edit a post they did not create' do
 	  	visit '/posts'
 	  	expect(page).not_to have_link 'Edit'
 	  end
@@ -61,7 +61,7 @@ feature 'posts' do
 	    expect(page).not_to have_content 'Hello'
 	  end
 
-	  scenario 'does not let a different user delete' do
+	  scenario 'does not let a user delete a post they did not create' do
 	  	visit '/posts'
 	  	expect(page).not_to have_link 'Delete'
 	  end
