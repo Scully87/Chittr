@@ -37,7 +37,7 @@ feature 'posts' do
 	end
 
 	context 'editing posts' do
-	  scenario 'let a user edit a post if singed in' do
+	  scenario 'let a user edit a post if signed in' do
 			sign_up
 	    create_post
 	    click_link 'Edit'
