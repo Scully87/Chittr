@@ -11,6 +11,7 @@
             <td><%= post.description %></td>
             <td><%= image_tag post.image.url(:thumb) %></td>
             <td><%=l post.created_at %></td>
+            <td><%= post.user.name %></td>
             <td>
             <% if current_user && current_user.id == post.user_id %>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
