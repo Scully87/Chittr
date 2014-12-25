@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+  validates_uniqueness_of :email
   has_many :posts
 	devise :omniauthable, :omniauth_providers => [:facebook]
   # Include default devise modules. Others available are:
