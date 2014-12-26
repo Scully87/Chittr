@@ -2,6 +2,8 @@
 <section class="holder">
   <section class="page-header">
   Posts
+    <%= current_user.name %>
+    <%= image_tag current_user.avatar.url(:thumb) %>
   </section>
   <section class="posts">
     <table class="table table-striped">
