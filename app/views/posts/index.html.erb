@@ -1,6 +1,6 @@
 <%- model_class = Post -%>
 <div class="wrapper">
-<section id="awan">
+  <section id="awan">
     <div class="box">
         <div class="row">
 
@@ -17,11 +17,10 @@
             <!-- sidebar -->
             <div class="column col-sm-3" id="sidebar">
               <% if user_signed_in? %>
-                <a class="logo" href="#"><%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %></a>
+                <a class="img-circle" href="#"><%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %></a>
                 <ul class="nav">
                   <li class="active"><%= current_user.name %></li>
-              <% else %>
-                <%= link_to "Sign in", new_user_session_path %>
+                  <li><%= link_to "New Post", new_post_path, :class => 'btn btn-primary' %></li>
               <% end %>
                 </ul>
             </div>
@@ -61,9 +60,10 @@
                               <li><%= link_to 'Like', post_likes_path(post), class: 'likes-link' %>
                               <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;</li>
                             </ul>
-                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/19.jpg" class="img-circle"></a>
+                            <a href="#" class="img-circle"><%= image_tag post.user.avatar.url(:thumb) if post.user.avatar.file? %></a>
                           </div> 
                         </div>
+                         <hr>
                          <% end %>
                                                               
                         <div class="col-sm-12">
@@ -98,5 +98,5 @@
           
         </div>
     </div>
-    </section>
+  </section>
 </div>
