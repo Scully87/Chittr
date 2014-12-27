@@ -1,5 +1,99 @@
 <%- model_class = Post -%>
-<section class="holder">
+<div class="wrapper">
+    <div class="box">
+        <div class="row">
+      
+            <!-- sidebar -->
+            <div class="column col-sm-3" id="sidebar">
+                <a class="logo" href="#">B</a>
+                <ul class="nav">
+                    <li class="active"><a href="#featured">Featured</a>
+                    </li>
+                    <li><a href="#stories">Stories</a>
+                    </li>
+                </ul>
+                <ul class="nav hidden-xs" id="sidebar-footer">
+                    <li>
+                      <a href="http://www.bootply.com"><h3>Basis</h3>Made with <i class="glyphicon glyphicon-heart-empty"></i> by Bootply</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /sidebar -->
+          
+            <!-- main -->
+            <div class="column col-sm-9" id="main">
+                <div class="padding">
+                    <div class="full col-sm-9">
+                      
+                        <!-- content -->
+                        
+                        <div class="col-sm-12" id="featured">   
+                          <div class="page-header text-muted">
+                          Posts
+                          </div> 
+                        </div>
+                        
+                       <% @posts.each do |post| %> 
+                        <!--/top story-->
+                        <div class="row">    
+                          <div class="col-sm-10">
+                            <%= post.description %>
+                            <%= image_tag post.image.url(:thumb) if post.image.file? %>
+                            <%=l post.created_at %>
+                            <%= post.user.name %>
+                            <% if current_user && current_user.id == post.user_id %>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_post_path(post), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          post_path(post),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-default btn-xs' %>
+              <% end %>
+              <%= link_to 'Like', post_likes_path(post), class: 'likes-link' %><br>
+            <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;
+
+                          </div>
+                          <div class="col-sm-2">
+                            <a href="#" class="pull-right"><img src="http://api.randomuser.me/portraits/thumb/men/19.jpg" class="img-circle"></a>
+                          </div> 
+                        </div>
+                         <% end %>
+                                                              
+                        <div class="col-sm-12">
+                          <div class="page-header text-muted divider">
+                            Connect with Us
+                          </div>
+                        </div>
+                      
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
+                          </div>
+                        </div>
+                        
+                        <hr>
+                      
+                        <div class="row" id="footer">    
+                        </div>
+                      
+                      
+                      <h3 class="text-center">
+                      <a href="http://bootply.com/" target="ext">©Copyright Tim Scully 2015</a>
+                      </h3>
+                        
+                      <hr>
+                        
+                      
+                    </div><!-- /col-9 -->
+                </div><!-- /padding -->
+            </div>
+            <!-- /main -->
+          
+        </div>
+    </div>
+</div>
+<!-- <section class="holder">
   <section class="page-header">
   Posts
     <% if signed_in? %>
@@ -40,4 +134,4 @@
                 new_post_path,
                 :class => 'btn btn-primary' %>
   </section>
-</section>
+</section> -->
