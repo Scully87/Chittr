@@ -19,7 +19,7 @@
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :description, :class => 'form-control' %>
-      <%= f.file_field :image %>
+      <%= f.file_field :image, :required => true %>
     </div>
     <%= error_span(@post[:description]) %>
   </div>

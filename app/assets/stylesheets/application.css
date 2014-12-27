@@ -23,6 +23,14 @@ html, body {
   text-shadow: 0.5px 0.5px grey;
 }
 
+.sign-up-form {
+  text-align: center;
+}
+
+.av-load {
+  margin-left: 45%;
+}
+
 a {
   text-decoration: none;
 }
