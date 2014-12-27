@@ -20,6 +20,7 @@ html, body {
   background: #C0DEED;
   height: 100%;
   font-family:'Open Sans',arial,sans-serif;
+  text-shadow: 0.5px 0.5px grey;
 }
 
 a {
@@ -54,10 +55,6 @@ aside {
 }
 
 .side-profile:hover {
-  text-align: center;
-  border: 2px white solid;
-  margin: 6%;
-  background-color: white;
   opacity: 1;
 }
 
@@ -244,12 +241,6 @@ small.text-muted {
   font-weight: 900;
 }
 
-.title:hover {
-  color: #2C427D;
-  margin: 10px;
-  font-size: 4rem;
-  font-weight: 900;
-}
 
 #awan {
   width:100%;
