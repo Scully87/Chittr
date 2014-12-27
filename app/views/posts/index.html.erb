@@ -2,8 +2,10 @@
 <section class="holder">
   <section class="page-header">
   Posts
-    <%= current_user.name %>
-    <%= image_tag current_user.avatar.url(:thumb) %>
+    <% if signed_in? %>
+      <%= current_user.name %>
+      <%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %>
+    <% end %>
   </section>
   <section class="posts">
     <table class="table table-striped">
