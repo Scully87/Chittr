@@ -20,6 +20,7 @@ html, body {
   background: #C0DEED;
    height: 100%;
    font-family:'Open Sans',arial,sans-serif;
+   /*color: white;*/
 }
 
 a {
@@ -69,7 +70,7 @@ a {
 }
 
 #main {
-    background: #C0DEED;
+    background-color:transparent;
 }
 #main .img-circle {
   margin-top:18px;
