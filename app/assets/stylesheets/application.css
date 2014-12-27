@@ -25,6 +25,14 @@ html, body {
 aside {
   min-height: 90px;
   margin: 10px;
+  text-align: center;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 2%;
+  clear: both;
 }
 
 a {
@@ -33,6 +41,28 @@ a {
 
 li {
   display: inline-block;
+}
+
+aside#post-avatar.pull-left {
+  width: 10%;
+  /*background-color: green;*/
+  float: left;
+  display: inline-block;
+}
+
+div.col-sm-10 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.post-post {
+  display: inline-block;
+  float: right;
+  /*background-color: salmon;*/
+  width: 85%;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .post-body li {
@@ -71,7 +101,6 @@ li {
 }
 
 .box {
-    bottom: 10; /* increase for footer use */
     left: 0;
     position: absolute;
     right: 0;

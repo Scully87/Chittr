@@ -28,12 +28,16 @@
             <!--/top story-->
             <div class="row">    
               <div class="col-sm-10">
-                <aside id="post-avatar" class="pull-left">
-                  <a href="#" class="img-circle"><%= image_tag post.user.avatar.url(:thumb) if post.user.avatar.file? %></a>
-                </aside>
+
+                  <aside id="post-avatar" class="pull-left">
+                    <%= image_tag post.user.avatar.url(:thumb) if post.user.avatar.file? %><br>
+                    <%= post.user.name %>
+                  </aside>
+
                 <ul>
-                  <section class="post-body"><li><%= post.description %>
-                  <%= image_tag post.image.url(:thumb) if post.image.file? %></li></section><br>
+                <section class="post-post">
+                  <section class="post-body"><li><%= post.description %></li>
+                  <li><%= image_tag post.image.url(:thumb) if post.image.file? %></li></section><br>
                   <section class="post-user">
                   <li>Posted By <i><%= post.user.name %></i>
                   <%=l post.created_at %></li></section><br>
@@ -50,37 +54,14 @@
                 </section>
                   <li><%= link_to 'Like', post_likes_path(post), class: 'likes-link' %>
                   <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;</li>
+                </section>
                 </ul>
               </div> 
             </div>
              <hr>
              <% end %>
                                                   
-            <div class="col-sm-12">
-              <div class="page-header text-muted divider">
-                Connect with Us
-              </div>
-            </div>
-          
-            <div class="row">
-              <div class="col-sm-6">
-                <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
-              </div>
-            </div>
-            
             <hr>
-          
-            <div class="row" id="footer">    
-            </div>
-          
-          
-          <h3 class="text-center">
-          <a href="http://bootply.com/" target="ext">© Copyright Tim Scully 2015</a>
-          </h3>
-            
-          <hr>
-            
-          
         </div><!-- /col-9 -->
     </div><!-- /padding -->
 </div>
