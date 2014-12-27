@@ -1,12 +1,13 @@
 <%- model_class = Post -%>
 <div class="wrapper">
+<section id="awan">
     <div class="box">
         <div class="row">
 
           <nav>
             <% if user_signed_in? %>
               <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-              <% else %>
+            <% else %>
               <%= link_to "Sign in", new_user_session_path %>
               <%= link_to "Sign up", new_user_registration_path %>
               <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
@@ -15,16 +16,13 @@
       
             <!-- sidebar -->
             <div class="column col-sm-3" id="sidebar">
-                <a class="logo" href="#">B</a>
+              <% if user_signed_in? %>
+                <a class="logo" href="#"><%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %></a>
                 <ul class="nav">
-                    <% if user_signed_in? %>
-                      <li><%= current_user.name %></li>
-                      <li><%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %></li>
-                    <% end %>
-                    <li class="active"><a href="#featured">Featured</a>
-                    </li>
-                    <li><a href="#stories">Stories</a>
-                    </li>
+                  <li class="active"><%= current_user.name %></li>
+              <% else %>
+                <%= link_to "Sign in", new_user_session_path %>
+              <% end %>
                 </ul>
             </div>
             <!-- /sidebar -->
@@ -100,46 +98,5 @@
           
         </div>
     </div>
+    </section>
 </div>
-<!-- <section class="holder">
-  <section class="page-header">
-  Posts
-    <% if signed_in? %>
-      <%= current_user.name %>
-      <%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %>
-    <% end %>
-  </section>
-  <section class="posts">
-    <table class="table table-striped">
-      <tbody>
-        <% @posts.each do |post| %>
-          <tr>
-            <td><%= post.description %></td>
-            <td><%= image_tag post.image.url(:thumb) if post.image.file? %></td>
-            <td><%=l post.created_at %></td>
-            <td><%= post.user.name %></td>
-            <td>
-            <% if current_user && current_user.id == post.user_id %>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_post_path(post), :class => 'btn btn-default btn-xs' %>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                          post_path(post),
-                          :method => :delete,
-                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-default btn-xs' %>
-              <% end %>
-          <section class="likes">
-            <%= link_to 'Like', post_likes_path(post), class: 'likes-link' %><br>
-            <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;
-          </section>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-                new_post_path,
-                :class => 'btn btn-primary' %>
-  </section>
-</section> -->

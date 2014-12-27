@@ -166,27 +166,10 @@ a .pull-right {
   -webkit-animation: awan-animasi 25s linear infinite;
 }
 
-/*section#logo {
-  display: inline-block;
-  color:black;
-}*/
-
 nav {
   display: inline-block;
   float: right;
 }
-
-/*.holder {
-  position: relative;
-	width: 95%;
-	height: 100%;
-	margin: 0 auto;
-}
-
-.likes {
-  float:right;
-  display: inline-block;
-}*/
 
 @keyframes awan-animasi {
   from {
