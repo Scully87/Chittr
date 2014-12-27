@@ -22,12 +22,45 @@ html, body {
   font-family:'Open Sans',arial,sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
 aside {
-  min-height: 90px;
+  min-height: 200%;
   margin: 10px;
   text-align: center;
   color: white;
 }
+
+.side-profile {
+  text-align: center;
+  border: 2px white solid;
+  margin: 6%;
+  background-color: white;
+  opacity: 0.6;
+}
+
+.side-profile:hover {
+  text-align: center;
+  border: 2px white solid;
+  margin: 6%;
+  background-color: white;
+  opacity: 1;
+}
+
 
 footer {
   text-align: center;
@@ -58,19 +91,16 @@ div.col-sm-10 {
 }
 
 .post-post {
-
   display: inline-block;
   float: right;
-  /*background-color: salmon;*/
+  margin-left: 5px;
   width: 85%;
-  padding-left: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .post-body li {
-  letter-spacing:2px;
-  font-size: 2rem;
+  color: white;
+  letter-spacing:1px;
+  font-size: 1.7rem;
 }
 
 .post-user li {
@@ -125,10 +155,6 @@ div.col-sm-10 {
   background-color:transparent;
 }
 
-#sidebar {
-  margin-top: 13%;
-}
-
 #sidebar, #sidebar a {
   background: #C0DEED;
   background-color:transparent;
@@ -151,6 +177,7 @@ div.col-sm-10 {
 }
 
 .new-button {
+  color: black;
   border: 2px solid white;
   text-align: center;
 }
@@ -186,15 +213,15 @@ div.col-sm-10 {
 
 /* bootstrap overrides */
 
+
 h1,h2,h3 {
    font-weight:800;
    font-family:'Open Sans',arial,sans-serif;
 }
 
-.page-header {
-  margin-top: 55px;
+.posts-header {
+  /*margin-top: 55px;*/
   padding-top: 9px;
-  border-top:1px solid #eeeeee;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:2px;
@@ -214,6 +241,14 @@ small.text-muted {
   color: white;
   margin: 10px;
   font-size: 4rem;
+  font-weight: 900;
+}
+
+.title:hover {
+  color: #2C427D;
+  margin: 10px;
+  font-size: 4rem;
+  font-weight: 900;
 }
 
 #awan {

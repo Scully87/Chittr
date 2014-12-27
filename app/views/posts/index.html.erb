@@ -1,28 +1,30 @@
 <%- model_class = Post -%>
 <!-- sidebar -->
 <div class="column col-sm-3" id="sidebar">
+  <section class="side-profile">
+  PROFILE<br><br>
   <% if user_signed_in? %>
-    <a class="img-circle" href="#"><%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %></a>
+  <section class="profile-image">
+    <%= image_tag current_user.avatar.url(:thumb) if current_user.avatar.file? %><br><br>
+  </section>
     <ul class="nav">
       <li class="active"><%= current_user.name %></li>
-      <li><%= link_to "New Post", new_post_path, :class => 'new-button' %></li>
+      <br><li><%= link_to "New Post", new_post_path, :class => 'new-button' %></li>
   <% end %>
     </ul>
+  </section>
 </div>
 <!-- /sidebar -->
 
 <!-- main -->
 <div class="column col-sm-9" id="main">
-    <div class="padding">
         <div class="full col-sm-9">
           
             <!-- content -->
-            
-            <div class="col-sm-12" id="featured">   
-              <div class="page-header text-muted">
+            <section class="posts-header">
                <p class="notice"><%= notice %></p> Posts:
-              </div> 
-            </div>
+            <hr>
+            </section>
             
           <% @posts.each do |post| %> 
             <!--/top story-->
@@ -64,6 +66,5 @@
             <hr>
           <% end %>
         </div><!-- /col-9 -->
-    </div><!-- /padding -->
 </div>
 <!-- /main -->
