@@ -1,7 +1,7 @@
 <%- model_class = Post -%>
 <!-- sidebar -->
-<div class="column col-sm-3" id="sidebar">
   <% if user_signed_in? %>
+<div class="column col-sm-3" id="sidebar">
   <section class="side-profile">
   PROFILE<br><br>
   <section class="profile-image">
@@ -12,59 +12,114 @@
       <br><li><%= link_to "New Post", new_post_path, :class => 'new-button' %></li>
     </ul>
   </section>
-  <% end %>
 </div>
+  <% end %>
 <!-- /sidebar -->
 
 <!-- main -->
+<% if user_signed_in? %>
 <div class="column col-sm-9" id="main">
-        <div class="full col-sm-9">
-          
-            <!-- content -->
-            <section class="posts-header">
-               <p class="notice"><%= notice %></p><br> Posts:
-            <hr>
+  <div class="full col-sm-9">
+    
+      <!-- content -->
+      <section class="posts-header">
+         <p class="notice"><%= notice %></p><br> Posts:
+      <hr>
+      </section>
+      
+    <% @posts.reverse.each do |post| %> 
+      <!--/top story-->
+      <div class="row">    
+        <div class="col-sm-10">
+
+            <aside id="post-avatar" class="pull-left">
+              <%= image_tag post.user.avatar.url(:thumb) if post.user.avatar.file? %><br>
+              <%= post.user.name %>
+            </aside>
+
+          <ul>
+          <section class="post-post">
+
+            <section class="post-buttons">
+              <% if current_user && current_user.id == post.user_id %>
+                <li><%= link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(post),:method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-default btn-xs' %></li><br><br>
+              <% end %>
             </section>
-            
-          <% @posts.reverse.each do |post| %> 
-            <!--/top story-->
-            <div class="row">    
-              <div class="col-sm-10">
 
-                  <aside id="post-avatar" class="pull-left">
-                    <%= image_tag post.user.avatar.url(:thumb) if post.user.avatar.file? %><br>
-                    <%= post.user.name %>
-                  </aside>
+            <section class="post-body">
+              <li><%= post.description %></li><br><br>
+              <li><%= image_tag post.image.url(:thumb) if post.image.file? %></li>
+            </section><br>
 
-                <ul>
-                <section class="post-post">
+            <section class="post-user">
+              <li>Posted By <i><%= post.user.name %></i>
+              <%=l post.created_at %></li>
+            </section><br>
 
-                  <section class="post-buttons">
-                    <% if current_user && current_user.id == post.user_id %>
-                      <li><%= link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs' %>
-                      <%= link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(post),:method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-default btn-xs' %></li><br><br>
-                    <% end %>
-                  </section>
+            <li><%= link_to 'Like', post_likes_path(post), class: 'likes-link' %>
+            <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;</li>
 
-                  <section class="post-body">
-                    <li><%= post.description %></li><br><br>
-                    <li><%= image_tag post.image.url(:thumb) if post.image.file? %></li>
-                  </section><br>
-
-                  <section class="post-user">
-                    <li>Posted By <i><%= post.user.name %></i>
-                    <%=l post.created_at %></li>
-                  </section><br>
-
-                  <li><%= link_to 'Like', post_likes_path(post), class: 'likes-link' %>
-                  <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;</li>
-
-                </section>
-                </ul>
-              </div> 
-            </div>
-            <hr>
-          <% end %>
-        </div><!-- /col-9 -->
+          </section>
+          </ul>
+        </div> 
+      </div>
+      <hr>
+    <% end %>
+  </div><!-- /col-9 -->
 </div>
+<% else %>
+<main>
+<div class="column col-sm-9" id="main1">
+  <div class="full col-sm-9">
+    
+      <!-- content -->
+      <section class="posts-header">
+         <p class="notice"><%= notice %></p><br> Posts:
+      <hr>
+      </section>
+      
+    <% @posts.reverse.each do |post| %> 
+      <!--/top story-->
+      <div class="row">    
+        <div class="col-sm-10">
+
+            <aside id="post-avatar" class="pull-left">
+              <%= image_tag post.user.avatar.url(:thumb) if post.user.avatar.file? %><br>
+              <%= post.user.name %>
+            </aside>
+
+          <ul>
+          <section class="post-post">
+
+            <section class="post-buttons">
+              <% if current_user && current_user.id == post.user_id %>
+                <li><%= link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(post),:method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-default btn-xs' %></li><br><br>
+              <% end %>
+            </section>
+
+            <section class="post-body">
+              <li><%= post.description %></li><br><br>
+              <li><%= image_tag post.image.url(:thumb) if post.image.file? %></li>
+            </section><br>
+
+            <section class="post-user">
+              <li>Posted By <i><%= post.user.name %></i>
+              <%=l post.created_at %></li>
+            </section><br>
+
+            <li><%= link_to 'Like', post_likes_path(post), class: 'likes-link' %>
+            <span class="likes_count"> <%= post.likes.count %> </span> likes&nbsp;</li>
+
+          </section>
+          </ul>
+        </div> 
+      </div>
+      <hr>
+    <% end %>
+  </div><!-- /col-9 -->
+</div>
+<main>
 <!-- /main -->
+<% end %>
