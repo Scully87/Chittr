@@ -5,6 +5,8 @@ Chittr
 
 Creating a Twitter clone in Rails
 
+![Chittr](https://s3.amazonaws.com/uploads.hipchat.com/119067/1211609/hiEgTh2I2sna5AW/chittr.png)
+
 ## Technologies Used
 
 - Ruby on Rails
@@ -20,4 +22,4 @@ Creating a Twitter clone in Rails
 - [x] Create Likes
 - [x] Add Image option to Posts
 - [x] Create AWS bucket
-- [ ]	Awesome User interface
+- [x]	Awesome User interface
