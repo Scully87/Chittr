@@ -213,7 +213,6 @@ h1,h2,h3 {
 }
 
 .posts-header {
-  /*margin-top: 55px;*/
   padding-top: 9px;
   font-weight:700;
   text-transform:uppercase;
@@ -303,5 +302,12 @@ nav {
 
 @media (max-width: 800px) {
 
-}
+  .post-post {
+    padding-left: 1%;
+  }
 
+  .post-body li {
+    font-size: 1.6rem;
+  }
+
+}
