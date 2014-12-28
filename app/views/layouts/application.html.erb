@@ -19,8 +19,7 @@
               <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             <% else %>
               <%= link_to "Sign in", new_user_session_path %> / 
-              <%= link_to "Sign up", new_user_registration_path %> /
-              <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+              <%= link_to "Sign up", new_user_registration_path %>
             <% end %>
           </nav>
           <ul>
@@ -32,7 +31,7 @@
 
         <footer>
         <hr>
-          <a href="https://twitter.com/TScully87">Twitter</a> <small class="text-muted">|</small> <a href="https://github.com/scully87">Github</a> <small class="text-muted">|</small> <a href="http://googleplus.com/scully87">Google+</a> |
+          <a href="https://twitter.com/TScully87">Twitter</a> <small class="text-muted">|</small> <a href="https://github.com/scully87">Github</a> <small class="text-muted">|</small> <a href="http://googleplus.com/scully87">Google+</a><br><br>
           <a href="http://timscully.co.uk" target="ext">© Copyright Tim Scully 2015</a>
         <hr>
         </footer>

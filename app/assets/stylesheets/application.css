@@ -48,10 +48,10 @@ a:focus {
 }
 
 aside {
-  min-height: 200%;
-  margin: 10px;
+  min-height: 100px;
   text-align: center;
   color: white;
+  position:relative;
 }
 
 .side-profile {
@@ -90,17 +90,16 @@ li {
 }
 
 aside#post-avatar.pull-left {
-  width: 10%;
-  /*background-color: green;*/
   float: left;
   display: inline-block;
 }
 
 div.col-sm-10 {
+  position:relative;
   margin: 0;
   padding: 0;
   width: 100%;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .post-post {
@@ -156,14 +155,8 @@ div.col-sm-10 {
     background-attachment:fixed;
 }
 
-
-
 .divider {
   margin-top:32px;
-}
-
-.img-circle {
-  border-radius: 50%;
 }
 
 #main {
@@ -212,25 +205,7 @@ div.col-sm-10 {
   float: right;
 }
 
-/* center and adjust the sidebar contents on smaller devices */
-@media (max-width: 768px) {
-  #sidebar,#sidebar a.logo {
-    text-align:center;
-    margin:0 auto;
-    margin-top:30px;
-    font-size:26px;
-  }
-  #sidebar a.logo {
-    font-size:50px;
-    height:75px;
-    width:75px;
-    margin-bottom:30px;
-  }
-}
-
-
 /* bootstrap overrides */
-
 
 h1,h2,h3 {
    font-weight:800;
@@ -325,3 +300,8 @@ nav {
     background-position: 100% 0;
   };
 }
+
+@media (max-width: 800px) {
+
+}
+
