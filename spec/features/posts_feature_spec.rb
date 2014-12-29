@@ -7,9 +7,10 @@ feature 'posts' do
 
   context 'no posts have been added' do
     scenario 'should display a prompt to add a post' do
+    	sign_up
       visit '/posts'
       expect(page).to have_content 'Posts'
-      expect(page).to have_link 'New'
+      expect(page).to have_link 'New Post'
     end
   end
 
@@ -31,8 +32,8 @@ feature 'posts' do
 
 		scenario 'does not let a user create a post unless signed in' do
 	  	visit '/posts'
-	  	click_link 'New'
-	  	expect(page).to have_content 'Log in'
+	  	expect(page).not_to have_link 'New Post'
+	  	expect(page).to have_content 'Sign in'
 	  end
 	end
 
@@ -41,7 +42,7 @@ feature 'posts' do
 			sign_up
 	    create_post
 	    click_link 'Edit'
-	    fill_in 'Title', with: 'GoodBye'
+	    fill_in 'Description', with: 'GoodBye'
 	    click_button 'Update Post'
 	    expect(page).to have_content 'GoodBye'
 	  end
