@@ -16,10 +16,10 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :description, :class => 'control-label', :placeholder => 'Body' %>
+    <%= f.label :description, :class => 'control-label', :placeholder => 'Description' %>
     <div class="controls">
       <%= f.text_field :description, :class => 'form-control' %>
-      <%= f.file_field :image, :required => true %>
+      <%= f.file_field :image %>
     </div>
     <%= error_span(@post[:description]) %>
   </div>
