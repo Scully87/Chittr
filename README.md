@@ -10,6 +10,9 @@ Creating a Twitter clone in Rails
 ## Technologies Used
 
 - Ruby on Rails
+- Devise
+- AWS
+- Paperclip
 
 ## Link to Site
 
