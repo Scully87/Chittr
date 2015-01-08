@@ -6,6 +6,10 @@ Chittr
 
 Creating a Twitter clone in Rails
 
+## Link to Site
+
+- [CHITTR](http://chittr-chittr.herokuapp.com)
+
 ![Chittr](https://s3.amazonaws.com/uploads.hipchat.com/119067/1211609/hiEgTh2I2sna5AW/chittr.png)
 
 ## Technologies Used
@@ -15,9 +19,6 @@ Creating a Twitter clone in Rails
 - AWS
 - Paperclip
 
-## Link to Site
-
-- [CHITTR](http://chittr-chittr.herokuapp.com)
 
 ## Job List
 
