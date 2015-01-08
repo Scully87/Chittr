@@ -1,5 +1,6 @@
 Chittr
 =======================
+[![Code Climate](https://codeclimate.com/github/Scully87/Chittr/badges/gpa.svg)](https://codeclimate.com/github/Scully87/Chittr)
 
 ## Synopsis
 
